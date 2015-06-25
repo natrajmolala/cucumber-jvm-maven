@@ -10,18 +10,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
+
+import com.cucumber.bdd.core.TestContext;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-@ContextConfiguration("classpath:cucumber.xml")
 public class WebSteps {
 
-	@Autowired
-	private WebDriver browser;
+	private WebDriver browser = TestContext.getInstance().getDriver();
 
 	@Given("^I visit google search page$")
 	public void i_visit_google_search_page() throws Throwable {
